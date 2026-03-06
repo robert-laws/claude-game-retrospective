@@ -1,4 +1,4 @@
-# 1990s Gaming Retrospective Website
+# 1990s Gaming Retrospective
 
 A nostalgic journey through the greatest video games of the 1990s. This static website blends retro pixel art aesthetics with modern web design, featuring a playable side-scrolling game, informational sections on 15 iconic games, a decade timeline, and chiptune audio.
 
