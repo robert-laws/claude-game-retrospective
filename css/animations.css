@@ -1,0 +1,155 @@
+/* ============================================
+   1990s Gaming Retrospective - Animations
+   ============================================ */
+
+/* === CRT SCANLINE OVERLAY === */
+.scanline-overlay {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  animation: scanline-roll 8s linear infinite;
+}
+
+@keyframes scanline-roll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100vh; }
+}
+
+/* === CRT FLICKER (subtle) === */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  animation: crt-flicker 0.15s infinite;
+}
+
+@keyframes crt-flicker {
+  0%   { opacity: 0.97; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+/* === NEON TEXT GLOW === */
+.glitch-text {
+  text-shadow:
+    0 0 7px var(--neon-blue),
+    0 0 10px var(--neon-blue),
+    0 0 21px var(--neon-blue),
+    0 0 42px var(--neon-purple),
+    0 0 82px var(--neon-purple);
+  animation: neon-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-pulse {
+  0% {
+    text-shadow:
+      0 0 7px var(--neon-blue),
+      0 0 10px var(--neon-blue),
+      0 0 21px var(--neon-blue),
+      0 0 42px var(--neon-purple),
+      0 0 82px var(--neon-purple);
+  }
+  100% {
+    text-shadow:
+      0 0 4px var(--neon-blue),
+      0 0 7px var(--neon-blue),
+      0 0 15px var(--neon-blue),
+      0 0 30px var(--neon-purple),
+      0 0 60px var(--neon-purple);
+  }
+}
+
+/* === NEON GLOW BUTTON === */
+.neon-glow {
+  box-shadow: var(--glow-green);
+  animation: btn-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes btn-glow {
+  0% {
+    box-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 40px var(--neon-green);
+  }
+}
+
+.neon-glow:hover {
+  animation: none;
+  box-shadow: var(--glow-yellow);
+}
+
+/* === SCROLL-REVEAL ANIMATIONS === */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered card entrance */
+.game-card.scroll-reveal {
+  transition-delay: calc(var(--card-index, 0) * 0.08s);
+}
+
+.fact-card.scroll-reveal {
+  transition-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+.timeline-entry.scroll-reveal {
+  transition-delay: calc(var(--card-index, 0) * 0.06s);
+}
+
+/* === PIXEL FADE-IN === */
+@keyframes pixel-in {
+  0%   { clip-path: inset(0 100% 100% 0); }
+  25%  { clip-path: inset(0 50% 50% 0); }
+  50%  { clip-path: inset(0 25% 25% 0); }
+  75%  { clip-path: inset(0 10% 10% 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+/* === BLINKING CURSOR === */
+@keyframes blink-cursor {
+  0%, 100% { border-right-color: transparent; }
+  50%      { border-right-color: var(--neon-green); }
+}
+
+/* === FLOATING ANIMATION (for decorative elements) === */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .scanline-overlay {
+    animation: none;
+  }
+
+  .hero-section::after {
+    animation: none;
+  }
+}

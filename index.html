@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A nostalgic journey through the greatest video games of the 1990s. Explore iconic titles, play a retro side-scroller, and relive the golden era of gaming.">
+  <meta name="keywords" content="1990s games, retro gaming, video game history, pixel art, Super Mario, Zelda, Sonic, Final Fantasy, 90s nostalgia">
+  <meta name="author" content="Robert Laws">
+
+  <meta property="og:title" content="1990s Gaming Retrospective">
+  <meta property="og:description" content="Relive the golden era of gaming with iconic 90s titles and a playable retro side-scroller.">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1990s Gaming Retrospective">
+  <meta name="twitter:description" content="Relive the golden era of gaming.">
+
+  <title>1990s Gaming Retrospective | The Golden Era of Video Games</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" aria-label="Home">
+        <span class="pixel-logo">90s</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul id="nav-menu" class="nav-links" role="menubar">
+        <li role="none"><a href="#hero" role="menuitem">Home</a></li>
+        <li role="none"><a href="#game-section" role="menuitem">Play Game</a></li>
+        <li role="none"><a href="#games-grid" role="menuitem">Top Games</a></li>
+        <li role="none"><a href="#timeline" role="menuitem">Timeline</a></li>
+        <li role="none"><a href="#about" role="menuitem">About</a></li>
+      </ul>
+      <button class="audio-toggle" aria-label="Toggle background music" aria-pressed="false">
+        <span class="audio-icon">&#9835;</span>
+      </button>
+    </div>
+  </nav>
+
+  <header id="hero" class="hero-section">
+    <div class="hero-pixel-scene">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title glitch-text">1990s Gaming Retrospective</h1>
+      <p class="hero-subtitle">Relive the Golden Era of Video Games</p>
+      <a href="#game-section" class="cta-button neon-glow">Start Playing</a>
+    </div>
+    <div class="scanline-overlay" aria-hidden="true"></div>
+  </header>
+
+  <main id="main-content">
+
+    <section id="game-section" class="game-section" aria-label="Playable retro side-scrolling game">
+      <h2 class="section-title">Play the Game</h2>
+      <p class="section-subtitle">Use arrow keys to move, Space to jump. Collect items and avoid obstacles!</p>
+      <div class="game-wrapper">
+        <canvas id="game-canvas" tabindex="0" role="img" aria-label="Retro side-scrolling platform game. Use arrow keys and spacebar to play."></canvas>
+        <div class="game-ui">
+          <div class="game-score" aria-live="polite">Score: <span id="score-display">0</span></div>
+          <div class="game-lives" aria-live="polite">Lives: <span id="lives-display">3</span></div>
+        </div>
+        <div class="game-controls-mobile" aria-label="Mobile game controls">
+          <button class="touch-btn touch-left" aria-label="Move left">&larr;</button>
+          <button class="touch-btn touch-right" aria-label="Move right">&rarr;</button>
+          <button class="touch-btn touch-jump" aria-label="Jump">Jump</button>
+        </div>
+        <div class="game-overlay" id="game-overlay">
+          <div class="game-overlay-content">
+            <h3 id="game-overlay-title">Retro Runner</h3>
+            <p id="game-overlay-message">Press Enter or tap Start to begin</p>
+            <button id="game-start-btn" class="cta-button neon-glow">Start Game</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="games-grid" class="games-section" aria-label="Top games of the 1990s">
+      <h2 class="section-title">Legendary Games of the 90s</h2>
+      <div class="filter-bar" role="tablist" aria-label="Filter games by platform">
+        <button role="tab" class="filter-btn active" data-filter="all" aria-selected="true">All</button>
+        <button role="tab" class="filter-btn" data-filter="nintendo" aria-selected="false">Nintendo</button>
+        <button role="tab" class="filter-btn" data-filter="sega" aria-selected="false">Sega</button>
+        <button role="tab" class="filter-btn" data-filter="playstation" aria-selected="false">PlayStation</button>
+        <button role="tab" class="filter-btn" data-filter="pc" aria-selected="false">PC</button>
+      </div>
+      <div class="games-grid-container" role="list">
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="nintendo" data-year="1990">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="super-mario-world" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Super Mario World</h3>
+            <div class="card-meta">
+              <span class="card-year">1990</span>
+              <span class="card-platform platform-nintendo">SNES</span>
+            </div>
+            <p class="card-description">The defining platformer of the 16-bit era. Mario and Luigi venture through Dinosaur Land to rescue Princess Toadstool from Bowser, discovering secret exits and hidden worlds along the way.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Introduced Yoshi to the franchise</li>
+                <li>Contains 96 total exits to discover</li>
+                <li>Was the SNES launch title in Japan</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="nintendo" data-year="1991">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="zelda-link-to-past" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">The Legend of Zelda: A Link to the Past</h3>
+            <div class="card-meta">
+              <span class="card-year">1991</span>
+              <span class="card-platform platform-nintendo">SNES</span>
+            </div>
+            <p class="card-description">Link must traverse the Light and Dark Worlds to defeat the evil wizard Agahnim and rescue the seven descendants of the Sages in this top-down action-adventure masterpiece.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Introduced the Master Sword to the series</li>
+                <li>Featured a dual Light/Dark World mechanic</li>
+                <li>Sold over 4.6 million copies worldwide</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="sega" data-year="1991">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="sonic" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Sonic the Hedgehog</h3>
+            <div class="card-meta">
+              <span class="card-year">1991</span>
+              <span class="card-platform platform-sega">Genesis</span>
+            </div>
+            <p class="card-description">Sega's blue blur races through Green Hill Zone and beyond at blazing speed to stop Dr. Robotnik from capturing animals and collecting Chaos Emeralds.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Created to rival Nintendo's Mario</li>
+                <li>Designed by Naoto Ohshima and Yuji Naka</li>
+                <li>The game's speed was revolutionary for its time</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="nintendo" data-year="1991">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="street-fighter-ii" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Street Fighter II</h3>
+            <div class="card-meta">
+              <span class="card-year">1991</span>
+              <span class="card-platform platform-nintendo">Arcade/SNES</span>
+            </div>
+            <p class="card-description">The game that defined the fighting genre. Eight world warriors compete in one-on-one combat using unique special moves, combos, and Hadoukens that became part of gaming culture.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Pioneered the competitive fighting game genre</li>
+                <li>Had multiple updated versions (Turbo, Super, etc.)</li>
+                <li>Generated over $10 billion in revenue</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="pc" data-year="1993">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="doom" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Doom</h3>
+            <div class="card-meta">
+              <span class="card-year">1993</span>
+              <span class="card-platform platform-pc">PC</span>
+            </div>
+            <p class="card-description">A space marine fights through hordes of demons on Mars and in Hell itself. This groundbreaking first-person shooter popularized the genre and introduced network multiplayer deathmatch.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Pioneered the shareware distribution model</li>
+                <li>Created by id Software's John Carmack and John Romero</li>
+                <li>Has been ported to nearly every platform imaginable</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="nintendo" data-year="1994">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="donkey-kong-country" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Donkey Kong Country</h3>
+            <div class="card-meta">
+              <span class="card-year">1994</span>
+              <span class="card-platform platform-nintendo">SNES</span>
+            </div>
+            <p class="card-description">Donkey Kong and Diddy Kong swing through jungles, ride mine carts, and blast from barrel cannons to recover their stolen banana hoard from King K. Rool and his Kremling army.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Used pre-rendered 3D graphics on a 2D console</li>
+                <li>Developed by Rare using Silicon Graphics workstations</li>
+                <li>Saved the SNES from early retirement</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="nintendo" data-year="1995">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="chrono-trigger" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Chrono Trigger</h3>
+            <div class="card-meta">
+              <span class="card-year">1995</span>
+              <span class="card-platform platform-nintendo">SNES</span>
+            </div>
+            <p class="card-description">A group of adventurers travel through time from 65 million B.C. to 2300 A.D. to prevent a global catastrophe. Multiple endings and a "Dream Team" of developers created RPG perfection.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Created by a "Dream Team" including Hironobu Sakaguchi and Akira Toriyama</li>
+                <li>Features 13 different endings</li>
+                <li>Introduced the New Game+ concept</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="playstation" data-year="1996">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="resident-evil" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Resident Evil</h3>
+            <div class="card-meta">
+              <span class="card-year">1996</span>
+              <span class="card-platform platform-playstation">PlayStation</span>
+            </div>
+            <p class="card-description">S.T.A.R.S. members Chris Redfield and Jill Valentine investigate a mysterious mansion filled with zombies, puzzles, and the sinister Umbrella Corporation's biological experiments.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Coined the term "survival horror"</li>
+                <li>The infamous "Jill Sandwich" line became a meme</li>
+                <li>Spawned one of gaming's biggest franchises</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="playstation" data-year="1996">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="crash-bandicoot" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Crash Bandicoot</h3>
+            <div class="card-meta">
+              <span class="card-year">1996</span>
+              <span class="card-platform platform-playstation">PlayStation</span>
+            </div>
+            <p class="card-description">A genetically enhanced bandicoot spins and jumps through tropical islands to defeat the evil Dr. Neo Cortex. Became PlayStation's unofficial mascot and a beloved platformer icon.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Developed by Naughty Dog before Uncharted fame</li>
+                <li>Internally nicknamed "Sonic's Ass Game" for its camera angle</li>
+                <li>The first game to use a PlayStation development technique called "paging"</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="nintendo" data-year="1996">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="pokemon" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Pokemon Red & Blue</h3>
+            <div class="card-meta">
+              <span class="card-year">1996</span>
+              <span class="card-platform platform-nintendo">Game Boy</span>
+            </div>
+            <p class="card-description">Catch, train, and battle 151 creatures across the Kanto region to become a Pokemon Master. The link cable trading system created a social phenomenon that transcended gaming.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Creator Satoshi Tajiri was inspired by collecting insects</li>
+                <li>The original 151 Pokemon included the secret Mew</li>
+                <li>Became the best-selling RPG franchise of all time</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="playstation" data-year="1997">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="final-fantasy-vii" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Final Fantasy VII</h3>
+            <div class="card-meta">
+              <span class="card-year">1997</span>
+              <span class="card-platform platform-playstation">PlayStation</span>
+            </div>
+            <p class="card-description">Cloud Strife and AVALANCHE fight to save the planet from the Shinra megacorporation and the enigmatic Sephiroth in this cinematic RPG that brought JRPGs to a global audience.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Cost approximately $45 million to develop</li>
+                <li>Spanned three PlayStation discs</li>
+                <li>Contains one of gaming's most memorable plot twists</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="nintendo" data-year="1997">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="goldeneye" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">GoldenEye 007</h3>
+            <div class="card-meta">
+              <span class="card-year">1997</span>
+              <span class="card-platform platform-nintendo">N64</span>
+            </div>
+            <p class="card-description">James Bond infiltrates enemy bases in this revolutionary console FPS. Its 4-player split-screen multiplayer defined countless sleepovers and friendships throughout the late '90s.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Developed by a team with almost no FPS experience</li>
+                <li>The split-screen multiplayer was added near the end of development</li>
+                <li>Oddjob was universally banned among friend groups</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="pc" data-year="1998">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="starcraft" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">StarCraft</h3>
+            <div class="card-meta">
+              <span class="card-year">1998</span>
+              <span class="card-platform platform-pc">PC</span>
+            </div>
+            <p class="card-description">Three distinct races - Terran, Protoss, and Zerg - battle for dominance in a sci-fi real-time strategy masterpiece that became a national sport in South Korea.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Became an esport in South Korea with televised matches</li>
+                <li>Sold over 11 million copies worldwide</li>
+                <li>The three races are considered perfectly balanced</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="playstation" data-year="1998">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="metal-gear-solid" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Metal Gear Solid</h3>
+            <div class="card-meta">
+              <span class="card-year">1998</span>
+              <span class="card-platform platform-playstation">PlayStation</span>
+            </div>
+            <p class="card-description">Solid Snake infiltrates Shadow Moses Island to neutralize a nuclear threat by rogue special forces in this cinematic stealth-action game that redefined narrative in gaming.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>The Psycho Mantis battle broke the fourth wall by reading your memory card</li>
+                <li>Directed by Hideo Kojima as a passion project</li>
+                <li>Featured fully voiced dialogue, unusual for the era</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="game-card scroll-reveal" role="listitem" data-platform="pc" data-year="1998">
+          <div class="card-image">
+            <canvas class="card-pixel-art" data-game="half-life" width="280" height="180" aria-hidden="true"></canvas>
+            <div class="card-scanline" aria-hidden="true"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Half-Life</h3>
+            <div class="card-meta">
+              <span class="card-year">1998</span>
+              <span class="card-platform platform-pc">PC</span>
+            </div>
+            <p class="card-description">Theoretical physicist Gordon Freeman fights for survival after a catastrophic experiment at the Black Mesa Research Facility opens portals to an alien dimension.</p>
+            <details class="card-facts">
+              <summary>Fun Facts</summary>
+              <ul>
+                <li>Told its entire story without cutscenes</li>
+                <li>The mod community created Counter-Strike from its engine</li>
+                <li>Won over 50 Game of the Year awards</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="timeline" class="timeline-section" aria-label="1990s gaming timeline">
+      <h2 class="section-title">The 90s Timeline</h2>
+      <div class="timeline-container">
+        <div class="timeline-track" role="list">
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1990">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1990</span>
+              <h3>Super Mario World</h3>
+              <p>The SNES launches in Japan with Mario's greatest 2D adventure. The 16-bit era begins.</p>
+            </div>
+          </div>
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1991">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1991</span>
+              <h3>The Console Wars Heat Up</h3>
+              <p>Sonic the Hedgehog arrives on Genesis. Street Fighter II ignites the arcade fighting craze. Zelda returns on SNES.</p>
+            </div>
+          </div>
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1992">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1992</span>
+              <h3>Mortal Kombat</h3>
+              <p>Mortal Kombat sparks controversy and eventually leads to the creation of the ESRB rating system.</p>
+            </div>
+          </div>
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1993">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1993</span>
+              <h3>Doom Changes Everything</h3>
+              <p>id Software releases Doom, popularizing the FPS genre and online multiplayer gaming forever.</p>
+            </div>
+          </div>
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1994">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1994</span>
+              <h3>PlayStation Arrives</h3>
+              <p>Sony enters the console market. Donkey Kong Country stuns with pre-rendered 3D graphics on SNES.</p>
+            </div>
+          </div>
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1995">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1995</span>
+              <h3>RPG Golden Age</h3>
+              <p>Chrono Trigger sets the bar for JRPGs. The PlayStation gains momentum worldwide.</p>
+            </div>
+          </div>
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1996">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1996</span>
+              <h3>A Landmark Year</h3>
+              <p>Pokemon mania begins. N64 launches with Mario 64. Resident Evil invents survival horror. Crash Bandicoot debuts.</p>
+            </div>
+          </div>
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1997">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1997</span>
+              <h3>Final Fantasy VII</h3>
+              <p>FFVII brings JRPGs mainstream. GoldenEye 007 defines console FPS. The PlayStation dominates.</p>
+            </div>
+          </div>
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1998">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1998</span>
+              <h3>The Greatest Year in Gaming</h3>
+              <p>Half-Life, Metal Gear Solid, StarCraft, Zelda: Ocarina of Time. A year many consider the best in gaming history.</p>
+            </div>
+          </div>
+          <div class="timeline-entry scroll-reveal" role="listitem" data-year="1999">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">1999</span>
+              <h3>The Decade Closes</h3>
+              <p>The Dreamcast launches, foreshadowing the next generation. The 90s leave behind an unmatched legacy of innovation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-nav" aria-label="Timeline navigation">
+        <button class="timeline-prev" aria-label="Previous year">&larr;</button>
+        <button class="timeline-next" aria-label="Next year">&rarr;</button>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <h2 class="section-title">About This Era</h2>
+      <div class="facts-grid">
+        <div class="fact-card scroll-reveal">
+          <div class="fact-icon">&#127918;</div>
+          <h3>The Console Wars</h3>
+          <p>Nintendo vs. Sega defined the early '90s, pushing both companies to create legendary games. Sony's PlayStation later disrupted the entire market.</p>
+        </div>
+        <div class="fact-card scroll-reveal">
+          <div class="fact-icon">&#128190;</div>
+          <h3>From 2D to 3D</h3>
+          <p>The decade saw gaming's biggest technological leap. Sprites gave way to polygons as the N64 and PlayStation ushered in the 3D revolution.</p>
+        </div>
+        <div class="fact-card scroll-reveal">
+          <div class="fact-icon">&#127911;</div>
+          <h3>Iconic Soundtracks</h3>
+          <p>From Koji Kondo's Mario melodies to Nobuo Uematsu's Final Fantasy orchestrations, 90s game music became art that stands on its own.</p>
+        </div>
+        <div class="fact-card scroll-reveal">
+          <div class="fact-icon">&#128279;</div>
+          <h3>Birth of Online Gaming</h3>
+          <p>Doom's multiplayer, Quake's online servers, and StarCraft's Battle.net laid the groundwork for the connected gaming world we know today.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-tagline">Built with nostalgia and vanilla code. No frameworks were harmed.</p>
+      <p class="footer-copyright">&copy; 2026 1990s Gaming Retrospective</p>
+    </div>
+  </footer>
+
+  <script src="js/audio.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
